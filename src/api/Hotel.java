@@ -1,8 +1,11 @@
 package api;
 
-public class HotelAPI {
+import IServicio.IntServicio;
 
-	public void buscarHoteles(String fechaIda, String fechaVuelta, String origen, String destino) {
+public class Hotel implements IntServicio {
+
+	@Override
+	public void buscar(String fechaIda, String fechaVuelta, String origen, String destino) {
 		System.out.println("******************");
 		System.out.println("Hoteles encontrados para "+ destino + " desde "+ origen);
 		System.out.println("Fecha de ida: "+ fechaIda + "Fecha de vuelta "+ fechaVuelta);
