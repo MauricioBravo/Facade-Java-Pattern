@@ -26,12 +26,18 @@ public class ServiceMaker {
 		
 		
 		
-		public void buscar(String fechaIda, String fechaVuelta,
+		public void buscarV(String fechaIda, String fechaVuelta,
 			String origen, String destino) {
-			
-			hotel.buscar(fechaIda,fechaVuelta, origen,destino);
 			avion.buscar(fechaIda,fechaVuelta, origen,destino);
-			System.out.println(hotel instanceof IntServicio);
+			System.out.println(avion instanceof IntServicio);
 		}
-
+		
+		
+		public void buscarH(String fechaIda, String fechaVuelta,
+				String origen, String destino) {
+				
+				hotel.buscar(fechaIda,fechaVuelta, origen,destino);
+				System.out.println(hotel instanceof IntServicio);
+			}
+		
 }
