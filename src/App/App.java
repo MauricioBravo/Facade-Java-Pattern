@@ -15,8 +15,18 @@ public class App {
 		final String fechaVuelta;
 		final int opcion;
 		
-		try (//OBJETO PARA LOS IMPUTS
-		Scanner myObj = new Scanner(System.in)) {
+		//INGRESAR USUARIO Y CONTRASEÑA
+		final String user;
+		final String password;
+		
+		//OBJETO PARA LOS IMPUTS
+		Scanner myObj = new Scanner(System.in);
+		System.out.println("ingrese usuario y contraseña");	
+		user = myObj.nextLine();
+		System.out.println("usted eligió " + user);
+		password = myObj.nextLine();
+		System.out.println("usted eligió " + password);
+		
 			
 			//INGRESO DE LAS PREFERENCIAS DE LA BUSQUEDA
 				System.out.println("ingrese la provincia destino");	
@@ -34,7 +44,7 @@ public class App {
 			System.out.println("2 para buscar hotel");	
 			System.out.println("3 para salir");	
 			opcion = myObj.nextInt();
-		}
+		
 		
 		
 		if(opcion==1) {
