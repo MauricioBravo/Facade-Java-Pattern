@@ -19,34 +19,31 @@ public class App {
 		final String user;
 		final String password;
 		
-		//OBJETO PARA LOS IMPUTS
-		Scanner myObj = new Scanner(System.in);
-		System.out.println("ingrese usuario y contraseña");	
-		user = myObj.nextLine();
-		System.out.println("usted eligió " + user);
-		password = myObj.nextLine();
-		System.out.println("usted eligió " + password);
-		
+		try (//OBJETO PARA LOS IMPUTS
+		Scanner myObj = new Scanner(System.in)) {
+			System.out.println("ingrese usuario y contraseña");	
+			user = myObj.nextLine();
+			System.out.println("usted eligió " + user);
+			password = myObj.nextLine();
+			System.out.println("usted eligió " + password);
 			
-			//INGRESO DE LAS PREFERENCIAS DE LA BUSQUEDA
-				System.out.println("ingrese la provincia destino");	
-				provincia = myObj.nextLine();
-				System.out.println("ingrese la localidad destino");	
-				localidad = myObj.nextLine();
-				System.out.println("ingrese la fecha de salida");	
-				fechaSalida = myObj.nextLine();
-				System.out.println("ingrese la fecha de regreso");	
-				fechaVuelta = myObj.nextLine();
 				
-				
-			//BUSCAR VUELO U HOTEL
-			System.out.println("1 para buscar vuelo");	
-			System.out.println("2 para buscar hotel");	
-			System.out.println("3 para salir");	
-			opcion = myObj.nextInt();
-		
-		
-		
+				//INGRESO DE LAS PREFERENCIAS DE LA BUSQUEDA
+					System.out.println("ingrese la provincia destino");	
+					provincia = myObj.nextLine();
+					System.out.println("ingrese la localidad destino");	
+					localidad = myObj.nextLine();
+					System.out.println("ingrese la fecha de salida");	
+					fechaSalida = myObj.nextLine();
+					System.out.println("ingrese la fecha de regreso");	
+					fechaVuelta = myObj.nextLine();
+						
+				//BUSCAR VUELO U HOTEL
+				System.out.println("1 para buscar vuelo");	
+				System.out.println("2 para buscar hotel");	
+				System.out.println("3 para salir");	
+				opcion = myObj.nextInt();
+		}
 		if(opcion==1) {
 			ServiceMaker cliente1 = ServiceMaker.getInstancia();
 			cliente1.buscarV(fechaSalida,fechaVuelta, provincia,localidad);
