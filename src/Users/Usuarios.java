@@ -6,6 +6,8 @@ import java.util.Scanner;
 //luego que el main dispare la clase service maker, posiblemente con un tercer 
 //patron a aplicar para que el proyecto tenga mas compljidad
 
+// el plan es seguir pasando cosas de app a acá para que quede mas prolijo, funcional y lineal, probar 
+// funcionamiento luego de pasar todas las cosas acá
 
 public class Usuarios {
 
@@ -34,6 +36,8 @@ public class Usuarios {
 					System.out.println("contraseña correcta");
 				}
 		}
+		
+		
 		
 	}
 
