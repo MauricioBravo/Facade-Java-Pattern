@@ -1,46 +1,87 @@
 package Users;
 
 import java.util.Scanner;
+import facade.ServiceMaker;
 
-// el plan de esta clase es la de aplicar un inicio de sesion que interactue con el main y
-//luego que el main dispare la clase service maker, posiblemente con un tercer 
-//patron a aplicar para que el proyecto tenga mas compljidad
-
-// el plan es seguir pasando cosas de app a acá para que quede mas prolijo, funcional y lineal, probar 
-// funcionamiento luego de pasar todas las cosas acá
 
 public class Usuarios {
 
-	//INGRESAR USUARIO Y CONTRASEÑA
-			private String user ="mauri";
-			private String password="1234";
-			private String user2;
-			private String password2;
-	
+	// INGRESAR USUARIO Y CONTRASEÑA
+	private String user = "mauri";
+	private String password = "1234";
+	private String user2;
+	private String password2;
+
+	// DECLARACION DE VARIABLES
+	private String provincia="";
+	private String localidad="";
+	private String fechaSalida="";
+	private String fechaVuelta="";
+	private int opcion;
+	public Scanner myObj = new Scanner(System.in);
 	public Usuarios() {
-		
-	}
-	
-	public void login(){
-		
-		
-		try (Scanner myObj2 = new Scanner(System.in)) {
-			System.out.println("ingrese usuario y contraseña");	
-			user2 = myObj2.nextLine();
-				if(user2==user) {
-					System.out.println("usuario encontrado");
-				}
-			password2 = myObj2.nextLine();
-		
-				if(password2==password) {
-					System.out.println("contraseña correcta");
-				}
-		}
-		
-		
-		
+
 	}
 
+	public void login() {
+
+
+			System.out.println("ingrese usuario y contraseña");
+			user2 = myObj.nextLine();
+			if (user2.equals(user)) {
+				System.out.println("usuario encontrado");
+			}
+			else {
+				System.out.println("usuario incorrecto");
+			}
+			password2 = myObj.nextLine();
+
+			if (password2.equals(password2)) {
+				System.out.println("contraseña correcta");
+			}
+	}
 	
-	
+
+	public void buscar() {
+		
+		
+		//INGRESO DE LAS PREFERENCIAS DE LA BUSQUEDA
+		
+		//OBJETO PARA LOS IMPUTS
+		
+			System.out.println("ingrese la provincia destino");	
+			provincia = myObj.nextLine();
+		
+		
+			System.out.println("ingrese la localidad destino");	
+			localidad = myObj.nextLine();
+							
+			System.out.println("ingrese la fecha de salida");	
+			fechaSalida = myObj.nextLine();
+							
+			System.out.println("ingrese la fecha de regreso");	
+			fechaVuelta = myObj.nextLine();
+		
+			
+		System.out.println("llegó acá");
+		
+		//BUSCAR VUELO U HOTEL
+		System.out.println("1 para buscar vuelo");	
+		System.out.println("2 para buscar hotel");	
+		System.out.println("3 para salir");
+		
+		
+		opcion = myObj.nextInt();
+		
+		if(opcion==1)
+		{
+			ServiceMaker cliente1 = ServiceMaker.getInstancia();
+			cliente1.buscarV(fechaSalida, fechaVuelta, provincia, localidad);
+		}else if(opcion==2){
+			ServiceMaker cliente1 = ServiceMaker.getInstancia();
+			cliente1.buscarH(fechaSalida, fechaVuelta, provincia, localidad);
+		}else{
+		System.out.println("Opcion incorrecta");
+		}
+	}
 }
