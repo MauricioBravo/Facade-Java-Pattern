@@ -4,6 +4,8 @@ import facade.ServiceMaker;
 
 import java.util.Scanner;
 
+import Users.Usuarios;
+
 public class App {
 
 	public static void main(String[] args) {
@@ -15,17 +17,12 @@ public class App {
 		final String fechaVuelta;
 		final int opcion;
 		
-		//INGRESAR USUARIO Y CONTRASEÑA
-		final String user;
-		final String password;
+		Usuarios usuarioactual = new Usuarios();
+		usuarioactual.login();
 		
 		try (//OBJETO PARA LOS IMPUTS
 		Scanner myObj = new Scanner(System.in)) {
-			System.out.println("ingrese usuario y contraseña");	
-			user = myObj.nextLine();
-			System.out.println("usted eligió " + user);
-			password = myObj.nextLine();
-			System.out.println("usted eligió " + password);
+			
 			
 				
 				//INGRESO DE LAS PREFERENCIAS DE LA BUSQUEDA
