@@ -11,55 +11,54 @@ public class Usuarios {
 	private String user2;
 	private String password2;
 
-	// DECLARACION DE VARIABLES
+	// VALORES DE BUSQUEDA
 	private String provincia = "";
 	private String localidad = "";
 	private String fechaSalida = "";
 	private String fechaVuelta = "";
 	private int opcion;
+
+	// OBJETO PARA LOS IMPUTS
 	public Scanner myObj = new Scanner(System.in);
 
 	public Usuarios() {
 
 	}
 
-	public void login() {
+	public boolean login() {
 		boolean estadoUsuario = false;
 		boolean estadoClave = false;
-		
+
+		// NO SALIR HASTA QUE SE CUMPLA EL USUARIO Y CLAVE
 		do {
 			System.out.println("ingrese usuario");
 			user2 = myObj.nextLine();
 			if (user2.equals(user)) {
 				System.out.println("usuario encontrado, ingrese contraseña:");
-				estadoUsuario=true;
+				estadoUsuario = true;
 				do {
-				password2 = myObj.nextLine();
-					if (password2.equals(password2)) {
-					System.out.println("contraseña correcta");
-					estadoClave=true;
-					}	
-					else {
-					System.out.println("contraseña incorrecta");
+					password2 = myObj.nextLine();
+					if (password2.equals(password)){
+						System.out.println("contraseña correcta");
+						estadoClave = true;
+					} else {
+						System.out.println("contraseña incorrecta");
 					}
-				}while(estadoClave==false);
-			
-			}
-			else {
+				} while (estadoClave == false);
+
+			} else {
 				System.out.println("usuario incorrecto");
 			}
-			
-		}while(estadoUsuario==false || estadoClave == false);
-		
-		System.out.println("salio");
-			
+
+		} while (estadoUsuario == false || estadoClave == false);
+
+		return true;
+
 	}
 
 	public void buscar() {
 
 		// INGRESO DE LAS PREFERENCIAS DE LA BUSQUEDA
-
-		// OBJETO PARA LOS IMPUTS
 
 		System.out.println("ingrese la provincia destino");
 		provincia = myObj.nextLine();
@@ -73,7 +72,6 @@ public class Usuarios {
 		System.out.println("ingrese la fecha de regreso");
 		fechaVuelta = myObj.nextLine();
 
-		System.out.println("llegó acá");
 
 		// BUSCAR VUELO U HOTEL
 		System.out.println("1 para buscar vuelo");
@@ -89,7 +87,8 @@ public class Usuarios {
 			ServiceMaker cliente1 = ServiceMaker.getInstancia();
 			cliente1.buscarH(fechaSalida, fechaVuelta, provincia, localidad);
 		} else {
-			System.out.println("Opcion incorrecta");
+			System.out.println("SALIENDO");
+			System.exit(0);
 		}
 	}
 }

@@ -11,6 +11,8 @@ public class ServiceMaker {
 		private IntServicio hotel;
 		private IntServicio avion;
 		
+		//CONSTRUCTOR DE SERVICEMAKER, CREA LOS OBJETOS DE LAS CLASES HOTEL Y AVION
+		//QUE SON DE TIPO INTSERVICIO
 		private ServiceMaker() {
 			hotel = new Hotel();
 			avion = new Avion();
@@ -35,7 +37,6 @@ public class ServiceMaker {
 		
 		public void buscarH(String fechaIda, String fechaVuelta,
 				String origen, String destino) {
-				
 				hotel.buscar(fechaIda,fechaVuelta, origen,destino);
 				System.out.println(hotel instanceof IntServicio);
 			}
