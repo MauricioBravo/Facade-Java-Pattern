@@ -16,3 +16,11 @@ public class App {
 		}		
 	}
 }
+
+
+// primero terminar el estrategia.
+// el metodo se tiene que llamar igual pero depende que quiero buscar elijo el objeto.
+//objeto.buscar ( que debe saber si es oavion o no)
+// despues el fachada que es intefarz de interfaces. va sobre el fachada entonces me cuesta menos programarlo.
+//mpalma@uch.edu.ar pedir material
+//marcelo.palma.a@gmail.com
